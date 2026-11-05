@@ -7,10 +7,14 @@ const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-displ
 const inter = Inter({ subsets: ['latin'], variable: '--font-body-family', display: 'swap' });
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono-family', display: 'swap' });
 
-const siteUrl = 'https://ahmedothman.dev'; // TODO: replace with your real domain once you have one
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://ahmed-othman-website.vercel.app';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  alternates: { canonical: '/' },
+  authors: [{ name: 'Ahmed Othman', url: siteUrl }],
+  creator: 'Ahmed Othman',
+  robots: { index: true, follow: true },
   title: {
     default: 'Ahmed Othman — AI Engineer (LLM Systems, RAG, Agentic AI)',
     template: '%s — Ahmed Othman',
@@ -35,18 +39,44 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: 'Ahmed Othman',
     type: 'website',
+    images: [{ url: '/profile.jpeg', width: 1024, height: 1024, alt: 'Ahmed Othman, AI Engineer' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Ahmed Othman — AI Engineer',
     description: 'Production LLM systems, RAG pipelines, and agentic AI.',
+    images: ['/profile.jpeg'],
   },
+};
+
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Ahmed Othman',
+  url: siteUrl,
+  image: `${siteUrl}/profile.jpeg`,
+  jobTitle: 'AI Engineer',
+  description:
+    'AI Engineer building production LLM systems, RAG pipelines, and agentic AI, with a focus on Arabic NLP.',
+  worksFor: { '@type': 'Organization', name: 'Vionex Digital Solutions' },
+  alumniOf: { '@type': 'CollegeOrUniversity', name: 'Nile University' },
+  address: { '@type': 'PostalAddress', addressLocality: 'Giza', addressCountry: 'EG' },
+  knowsAbout: ['Large Language Models', 'Retrieval-Augmented Generation', 'Agentic AI', 'Arabic NLP', 'Workflow Automation'],
+  sameAs: [
+    'https://www.linkedin.com/in/ahmed-othman-a38805232/',
+    'https://github.com/Ahmed1Osman',
+    'https://medium.com/@ao9200004',
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
       <body className="antialiased min-h-screen bg-bg text-ink">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         <Navbar />
         <main className="min-h-screen w-full">{children}</main>
         <footer className="border-t border-line">
