@@ -39,13 +39,13 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: 'Ahmed Othman',
     type: 'website',
-    images: [{ url: '/profile.jpeg', width: 1024, height: 1024, alt: 'Ahmed Othman, AI Engineer' }],
+    images: [{ url: '/ahmed-othman-ai-engineer.jpg', width: 1024, height: 1024, alt: 'Ahmed Othman, AI Engineer' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Ahmed Othman — AI Engineer',
     description: 'Production LLM systems, RAG pipelines, and agentic AI.',
-    images: ['/profile.jpeg'],
+    images: ['/ahmed-othman-ai-engineer.jpg'],
   },
 };
 
@@ -54,7 +54,7 @@ const personJsonLd = {
   '@type': 'Person',
   name: 'Ahmed Othman',
   url: siteUrl,
-  image: `${siteUrl}/profile.jpeg`,
+  image: `${siteUrl}/ahmed-othman-ai-engineer.jpg`,
   jobTitle: 'AI Engineer',
   description:
     'AI Engineer building production LLM systems, RAG pipelines, and agentic AI, with a focus on Arabic NLP.',
