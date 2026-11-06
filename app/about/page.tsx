@@ -13,8 +13,8 @@ export default function About() {
       <div className="flex items-start gap-6 flex-wrap">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/profile.jpeg"
-          alt="Ahmed Othman"
+          src="/ahmed-othman-ai-engineer.jpg"
+          alt="Ahmed Othman, AI Engineer"
           className="w-20 h-20 rounded-full object-cover border border-line shrink-0"
         />
         <div>
