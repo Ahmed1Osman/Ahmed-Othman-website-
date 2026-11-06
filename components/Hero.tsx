@@ -16,6 +16,14 @@ export default function Hero() {
     <section className="relative border-b border-line">
       <Container className="py-24 lg:py-32">
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/ahmed-othman-ai-engineer.jpg"
+            alt="Ahmed Othman, AI Engineer"
+            width={96}
+            height={96}
+            className="w-24 h-24 rounded-full object-cover border border-line mb-6"
+          />
           <div className="flex items-center gap-2 mb-6">
             <span className="status-dot" />
             <span className="eyebrow">Available for select freelance & full-time roles</span>
